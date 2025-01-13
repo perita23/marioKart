@@ -1,17 +1,20 @@
 import vehicle from "./vehicle";
 
 class car extends vehicle {
-  move() {
+  move(wheaterStatus) {
     let posToMove = getRandomNumber(this.MinVelocity, this.MaxVelocity);
     let traction = this.Traction;
 
-    switch (traction) {
-      case "high":
-        posToMove = posToMove + 5;
-        break;
-      case "medium":
-        posToMove = posToMove + 2;
-        break;
+    const modfiers = {
+      low: { lluvioso: 4, humedo: 2, seco: 0 },
+      medium: { lluvioso: 2, humedo: 2, seco: 2 },
+      hight: { lluvioso: 0, humedo: 2, seco: 4 },
+    };
+
+    for (let key in modfiers[traction]) {
+      if (key === wheaterStatus) {
+        posToMove += modfiers[traction][key];
+      }
     }
 
     return posToMove;
