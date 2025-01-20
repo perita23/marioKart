@@ -31,127 +31,83 @@
       crossorigin="anonymous"
     ></script>
   </head>
-  <body>
-    <header>
-      <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">StucomKarting</a>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarScroll"
-            aria-controls="navbarScroll"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarScroll">
-            <ul
-              class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll"
-              style="--bs-scroll-height: 100px"
-            >
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a
-                  class="nav-link dropdown-toggle"
-                  href="#"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  Link
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                  <li><hr class="dropdown-divider" /></li>
-                  <li>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                  </li>
-                </ul>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link disabled" aria-disabled="true">Link</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
+  <body style="height: 100vh">
+    <header id="header" style="height: 10vh">
+      <div
+        id="header-div"
+        class="d-flex flex-row align-items-center gap-3"
+        style="height: 100%"
+      >
+        <img
+          style="height: 100%; width: auto"
+          class="img-fluid"
+          src="./assest/images/pfp.png"
+          alt="Profile Image"
+        />
+
+        <input
+          class="form-control"
+          type="text"
+          placeholder="Player's name"
+          style="height: 100%; width: 30%"
+        />
+      </div>
     </header>
-    <div class="d-flex flex-column gap-4 justify-content-center align-items-center">
-      <section class="w-50">
-        <div class="mb-3">
-          <label for="dirverName" class="form-label">Driver Name</label>
-          <input
-        list="dirverName-list"
-        type="text"
-        class="form-control"
-        placeholder="Enter your name"
-        id="dirverName"
-        name="dirverName"
-        required
+    <div id="bg-section">
+      <section style="height: 80vh" class="d-flex">
+        <div
+          id="img-section"
+          class="w-50 p-4"
+          style="
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border-radius: 10px;
+          "
+        >
+          <img
+            id="imgTag"
+            style="width: 30vw; align-self: center"
+            src=""
+            alt=""
           />
-          <datalist id="dirverName-list">
-        <option value="Bowser"></option>
-        <option value="Mario"></option>
-        <option value="Luigi"></option>
-        <option value="Peach"></option>
-          </datalist>
         </div>
-        <div class="mb-3">
-          <label for="vehicleSelect" class="form-label">Select Vehicle</label>
-          <select
-        name="vehicleSelect"
-        id="vehicleSelect"
-        class="form-select"
-        required
-          ></select>
+        <div
+          id="form-section"
+          class="w-50 p-4"
+          style="
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border-radius: 10px;
+          "
+        ></div>
+      </section>
+      <footer style="height: 20vh">
+        <div class="d-flex justify-content-around h-100">
+          <button
+            onclick="changeToDriversForm()"
+            id="btn-drivers"
+            class="btn btn-dark w-100 fs-4"
+          >
+            Drivers
+          </button>
+          <button
+            onclick="changeToCarsForm()"
+            id="btn-cars"
+            class="btn btn-dark w-100 fs-4"
+          >
+            Cars
+          </button>
+          <button
+            onclick="changeToRaceForm()"
+            id="btn-race"
+            class="btn btn-dark w-100 fs-4"
+          >
+            RACE
+          </button>
         </div>
-        <button type="button" class="btn btn-primary">Add</button>
-            </section>
-            <section class="w-50">
-        <div class="mb-3">
-          <label for="vehicleModel" class="form-label">Vehicle Model</label>
-          <input list="vehicleModel-list" type="text" name="vehicleModel" id="vehicleModel" class="form-control" required />
-          <datalist id="vehicleModel-list">
-        <option value="Bowser-car"></option>
-        <option value="Mario-car"></option>
-        <option value="Luigi-car"></option>
-        <option value="Peach-car"></option>
-          </datalist>
-        </div>
-        <div class="mb-3">
-          <label for="minVelocity" class="form-label">Min Velocity</label>
-          <input type="text" name="minVelocity" id="minVelocity" class="form-control" placeholder="Min Vel" required />
-        </div>
-        <div class="mb-3">
-          <label for="maxVelocity" class="form-label">Max Velocity</label>
-          <input type="text" name="maxVelocity" id="maxVelocity" class="form-control" placeholder="Max Vel" required />
-        </div>
-        <div class="mb-3">
-          <label for="tractionSelect" class="form-label">Traction</label>
-          <select name="tractionSelect" id="tractionSelect" class="form-select" required>
-        <option value="hight">hight</option>
-        <option value="medium">medium</option>
-        <option value="low">low</option>
-          </select>
-        </div>
-        <div class="mb-3">
-          <label for="vehicleType" class="form-label">Vehicle Type</label>
-          <select name="vehicleType" id="vehicleType" class="form-select" required>
-        <option value="car">car</option>
-        <option value="motorBike">motorbike</option>
-          </select>
-        </div>
-        <button type="button" class="btn btn-primary">Add</button>
-            </section>
+      </footer>
     </div>
   </body>
 </html>
