@@ -1,10 +1,14 @@
-let btnDriver = document.getElementById("btn-dirver");
-let btnCars = document.getElementById("btn-cars");
-let btnRace = document.getElementById("btn-race");
+import {
+  addVehicle,
+  addDriver,
+  selectIntegration,
+} from "./src/controllers/raceController.js";
 
-function changeToDriversForm(var1) {
+
+function changeToDriversForm() {
   fetch("./components/driverForm.html")
     .then((response) => {
+      
       return response.text();
     })
     .then((data) => {
@@ -19,6 +23,7 @@ function changeToDriversForm(var1) {
     .catch((error) => {
       console.error(error);
     });
+
 }
 function changeToCarsForm() {
   fetch("./components/carsForm.html")
@@ -39,7 +44,7 @@ function changeToCarsForm() {
     });
 }
 function changeToRaceForm() {
-  fetch("./components/carsForm.html")
+  fetch("./components/raceForm.html")
     .then((response) => {
       return response.text();
     })
@@ -53,3 +58,19 @@ function changeToRaceForm() {
       console.error(error);
     });
 }
+
+window.changeToDriversForm = changeToDriversForm;
+window.changeToCarsForm = changeToCarsForm;
+window.changeToRaceForm = changeToRaceForm;
+
+function selectOnClick() {
+  selectIntegration();
+}
+
+window.selectOnClick = selectOnClick;
+
+function addVehicleForm() {
+  addVehicle();
+}
+
+window.addVehicleForm = addVehicleForm;

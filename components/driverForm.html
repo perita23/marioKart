@@ -3,18 +3,23 @@
     type="text"
     class="form-control bg-secondary text-white"
     placeholder="Driver's name"
+    required
   />
   <select
+  onclick="selectOnClick()"
     name="vehicle-select"
     id="vehicle-select"
     class="form-select bg-secondary text-white"
+    required
   >
+  <option value="" default>Select a vehicle</option>
   </select>
   <textarea
     name="stats"
     id="stats"
     class="form-control bg-secondary text-white"
     rows="3"
+    required
   >
   </textarea>
   <button class="btn btn-outline-light">Select driver</button>

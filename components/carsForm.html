@@ -1,8 +1,10 @@
 <div id="driver-form" class="d-flex flex-column gap-3">
   <input
     type="text"
+    id="model"
     class="form-control bg-secondary text-white"
     placeholder="Model"
+    required
   />
   <div class="d-flex gap-3">
     <input
@@ -11,6 +13,7 @@
       name="minVel"
       id="minVel"
       placeholder="Min Vel"
+      required
     />
     <input
       class="form-control bg-secondary text-white w-50"
@@ -18,23 +21,26 @@
       name="maxVel"
       id="maxVel"
       placeholder="Max vel"
+      required
     />
   </div>
   <select
     name="traction-select"
-    id="traction-select-1"
+    id="traction-select"
     class="form-select bg-secondary text-white"
     placeholder="Traction Type"
+    required
   >
     <option value="">Select a traction</option>
     <option value="high">high</option>
-    <option value="meidum">medium</option>
+    <option value="medium">medium</option>
     <option value="soft">soft</option>
   </select>
   <select
     name="traction-select"
-    id="traction-select-2"
+    id="type-select"
     class="form-select bg-secondary text-white"
+    required
   >
     <option value="">Select a Type</option>
     <option value="motorBike">Motor Bike</option>
@@ -45,8 +51,9 @@
     id="stats"
     class="form-control bg-secondary text-white"
     rows="3"
+    required
   >
   </textarea>
-  <button class="btn btn-outline-light">Add Vehicle</button>
+  <button onclick="addVehicleForm()" id="addVehicle" class="btn btn-outline-light">Add Vehicle</button>
   <button class="btn btn-outline-light">Show Stats</button>
 </div>

@@ -1,4 +1,4 @@
-import vehicle from "./vehicle";
+import vehicle from "./vehicle.js";
 
 class car extends vehicle {
   move(wheaterStatus) {
@@ -19,4 +19,4 @@ class car extends vehicle {
 
     return posToMove;
   }
-}
+}export default car;

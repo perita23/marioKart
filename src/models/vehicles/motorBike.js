@@ -1,5 +1,5 @@
-import vehicle from "./vehicle";
-import { getRandomNumber } from "../../../utils/utils";
+import vehicle from "./vehicle.js";
+import { getRandomNumber } from "../../../utils/utils.js";
 
 class motorBike extends vehicle {
   move() {
@@ -17,4 +17,4 @@ class motorBike extends vehicle {
 
     return posToMove;
   }
-}
+}export default motorBike;
