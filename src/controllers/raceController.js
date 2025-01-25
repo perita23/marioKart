@@ -228,7 +228,7 @@ function startRace() {
     participantName.className = "text-center";
     container.className = "d-flex flex-column justify-content-center";
     container.style.width = "fit-content";
-    container.style.transition = "all 0.5s";
+    container.style.transition = "all 1.5s";
     container.id = participant.Name + "vehicle";
     vehicle.src =
       participant.Vehicle instanceof car
