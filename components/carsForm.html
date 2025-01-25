@@ -1,11 +1,14 @@
 <div id="driver-form" class="d-flex flex-column gap-3">
   <input
+    onfocus="datalistOnClick()"
     type="text"
     id="model"
     class="form-control bg-secondary text-white"
     placeholder="Model"
+    list="model-list"
     required
   />
+  <datalist id="model-list"> </datalist>
   <div class="d-flex gap-3">
     <input
       class="form-control bg-secondary text-white w-50"
@@ -54,6 +57,12 @@
     required
   >
   </textarea>
-  <button onclick="addVehicleForm()" id="addVehicle" class="btn btn-outline-light">Add Vehicle</button>
+  <button
+    onclick="addVehicleForm()"
+    id="addVehicle"
+    class="btn btn-outline-light"
+  >
+    Add Vehicle
+  </button>
   <button class="btn btn-outline-light">Show Stats</button>
 </div>

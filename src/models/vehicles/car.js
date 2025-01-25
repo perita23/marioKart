@@ -1,4 +1,5 @@
 import vehicle from "./vehicle.js";
+import { getRandomNumber } from "../../../utils/utils.js";
 
 class car extends vehicle {
   move(wheaterStatus) {

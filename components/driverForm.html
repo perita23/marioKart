@@ -1,12 +1,13 @@
 <div id="driver-form" class="d-flex flex-column gap-3">
   <input
     type="text"
+    id = "driver-name"
     class="form-control bg-secondary text-white"
     placeholder="Driver's name"
     required
   />
   <select
-  onclick="selectOnClick()"
+  onfocus="selectOnClick()"
     name="vehicle-select"
     id="vehicle-select"
     class="form-select bg-secondary text-white"
@@ -19,10 +20,9 @@
     id="stats"
     class="form-control bg-secondary text-white"
     rows="3"
-    required
   >
   </textarea>
-  <button class="btn btn-outline-light">Select driver</button>
+  <button onclick="addDriverForm()" class="btn btn-outline-light">Select driver</button>
   <button class="btn btn-outline-light">Show Stats</button>
 </div>
 

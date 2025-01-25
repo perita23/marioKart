@@ -1,0 +1,78 @@
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-6">
+      <div id="driver-form" class="card bg-dark text-white p-3">
+        <h4 class="card-title">Race Details</h4>
+        <div class="form-group mb-3">
+          <input
+            type="text"
+            id="racetrack-name"
+            class="form-control bg-secondary text-white"
+            placeholder="Race name"
+            required
+          />
+        </div>
+        <div class="form-group mb-3">
+          <input
+            type="number"
+            name="length"
+            id="racetrack-length"
+            placeholder="Length"
+            class="form-control bg-secondary text-white"
+          />
+        </div>
+        <div class="form-group mb-3">
+          <select
+            name="weather-select"
+            id="weather-select"
+            class="form-select bg-secondary text-white"
+            required
+          >
+            <option value="lluvioso">Lluvioso</option>
+            <option value="humedo">Humedo</option>
+            <option value="seco">Seco</option>
+          </select>
+        </div>
+        <button onclick="addRacetrackForm()" class="btn btn-outline-light">Create Race</button>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card bg-dark text-white p-3">
+        <h4 class="card-title">Participants</h4>
+        <div class="form-group mb-3">
+          <select
+          onfocus="getParticipants()"
+            name="add-participant"
+            id="add-participant"
+            class="form-select bg-secondary text-white"
+            required
+          >
+            <option value="" disabled selected>Add Participant</option>
+          </select>
+          <button onclick="addParticipantForm()" class="btn btn-outline-light mt-2">Add</button>
+        </div>
+        <div class="form-group mb-3">
+          <select
+          onfocus="getCurrentParticipants()"
+            name="remove-participant"
+            id="remove-participant"
+            class="form-select bg-secondary text-white"
+            required
+          >
+            <option value="" disabled selected>Remove Participant</option>
+          </select>
+          <button onclick="removeParticipantForm()" class="btn btn-outline-light mt-2">Remove</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row mt-4">
+    <div class="col-12">
+      <div class="card bg-dark text-white p-3">
+        <h4 class="card-title">Participants List</h4>
+        <ul id="participants-list" class="list-group bg-secondary text-white">
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
