@@ -17,4 +17,8 @@ class motorBike extends vehicle {
 
     return posToMove;
   }
+
+  hasFallen() {
+    return Math.random() < 0.3;
+  }
 }export default motorBike;

@@ -230,6 +230,7 @@ function startRace() {
     container.style.width = "fit-content";
     container.style.transition = "all 1.5s";
     container.id = participant.Name + "vehicle";
+    vehicle.id = participant.Name + "img";
     vehicle.src =
       participant.Vehicle instanceof car
         ? "./../../assest/images/car1-removebg-preview.png"
@@ -246,23 +247,67 @@ function startRace() {
 }
 
 function intervalMove() {
+  let podium = [];
   racetracks.Participants.forEach((participant) => {
     let container = document.getElementById(participant.Name + "vehicle");
     let currentPos = 0;
     let interval = setInterval(() => {
-      currentPos += participant.Vehicle.move(racetracks.Weather);
-      console.log(container);
-      container.style.marginLeft = currentPos / racetracks.Length * 75 + "%";
-      console.log(currentPos + "to  " + racetracks.Length);
+      if (
+        participant.Vehicle instanceof motorBike &&
+        participant.Vehicle.hasFallen()
+      ) {
+        let img = document.getElementById(participant.Name + "img");
+        img.src = "../../assest/images/humo-removebg-preview.png";
+      } else {
+        if (participant.Vehicle instanceof motorBike) {
+          let img = document.getElementById(participant.Name + "img");
+          img.src = "../../assest/images/motorbike-removebg-preview.png";
+        }
+        currentPos += participant.Vehicle.move(racetracks.Weather);
+        container.style.marginLeft =
+          (currentPos / racetracks.Length) * 75 + "%";
+        console.log(currentPos + "to  " + racetracks.Length);
+      }
+
       if (currentPos >= racetracks.Length) {
         clearInterval(interval);
         console.log(`${participant.Name} has finished the race!`);
+        podium.push(participant);
+      if (podium.length === racetracks.Participants.length) {
+        let podiumMessage = "Podium:\n";
+        podium.forEach((participant, index) => {
+          participant.History = racetracks.Name + "Pos -> "+index+1
+          podiumMessage += `${index + 1}. ${participant.Name}\n`;
+        });
+        alert(podiumMessage);
+      }
       }
     }, 1000);
   });
 }
 
+function getVehicleStats() {
+  let selectedVehicle = document.getElementById("model").value;
+  let vehicle = vehicles.find((v) => v.Name === selectedVehicle);
+  if (vehicle) {
+    console.log(vehicle);
+    let textarea = document.getElementById("stats");
+    textarea.innerText = vehicle.getStats();
+  } else {
+    throw Exception;
+  }
+}
 
+function getDriverStats(){
+  let selectedDriver = document.getElementById("driver-name").value;
+  let driver = drivers.find((d) => d.Name === selectedDriver)
+  if( driver){
+    let textarea = document.getElementById("stats")
+    textarea.innerHTML = driver.getDriverStats();
+  }else{
+    throw Exception
+  }
+}
 export {
   addDriver,
   addVehicle,
@@ -276,4 +321,6 @@ export {
   addParticipantSelectIntegration,
   rmParticipantSelectIntegration,
   startRace,
+  getVehicleStats,
+  getDriverStats,
 };

@@ -11,6 +11,8 @@ import {
   addParticipantSelectIntegration,
   rmParticipantSelectIntegration,
   startRace,
+  getVehicleStats,
+  getDriverStats,
 } from "./src/controllers/raceController.js";
 
 function changeToDriversForm() {
@@ -94,10 +96,28 @@ function getCurrentParticipants() {
   rmParticipantSelectIntegration();
 }
 
+function showVehicleStats() {
+  try {
+    getVehicleStats();
+  } catch (Exception) {
+    openModal("Vehicle not found!")
+  }
+}
+
+function showDriverStats(){
+  try{
+    getDriverStats();
+  }catch(Exception){
+    openModal("Driver not found!")
+  }
+}
+
 window.datalistOnClick = datalistOnClick;
 window.selectOnClick = selectOnClick;
 window.getParticipants = getParticipants;
 window.getCurrentParticipants = getCurrentParticipants;
+window.showVehicleStats = showVehicleStats;
+window.showDriverStats = showDriverStats,
 
 function addVehicleForm() {
   try {
@@ -146,7 +166,7 @@ function removeParticipantForm() {
 }
 window.addRacetrackForm = addRacetrackForm;
 window.addDriverForm = addDriverForm;
-window.addVehicleForm = addVehicleForm;
+window.addVehicleForm = addVehicle;
 
 window.addParticipantForm = addParticipantForm;
 window.removeParticipantForm = removeParticipantForm;
@@ -190,5 +210,8 @@ function openRaceModal() {
 /**
  * Generate the vehicles
  */
+
+
 document.addEventListener(onload, generateVehicles());
 document.addEventListener(onload, generateDrivers());
+document.addEventListener(onload, changeToDriversForm());

@@ -34,4 +34,14 @@ class vehicle {
   set MaxVelocity(maxVelocity) {
     this.#maxVelocity = maxVelocity;
   }
+
+  getStats() {
+    let text = `
+      Name: ${this.#name}
+      Traction: ${this.#traction}
+      Min Velocity: ${this.#minVelocity}
+      Max Velocity: ${this.#maxVelocity}
+    `;
+    return text;
+  }
 }export default vehicle;
